@@ -12,6 +12,8 @@ import (
 	"github.com/confluentinc/confluent-kafka-go/v2/kafka"
 )
 
+const PARTITION_AMOUNT = 3
+
 type Row struct {
 	RowID  string  `json:"row_id"`
 	Value1 int     `json:"value1"`
@@ -69,8 +71,7 @@ func main() {
 				if m.TopicPartition.Error != nil {
 					fmt.Printf("Ошибка доставки сообщения: %v\n", m.TopicPartition.Error)
 				} else {
-					fmt.Printf("Сообщение отправлено в топик %s [%d] оффсет %v\n",
-						*m.TopicPartition.Topic, m.TopicPartition.Partition, m.TopicPartition.Offset)
+					fmt.Printf("Сообщение отправлено в топик %s [%d] оффсет %v\n", *m.TopicPartition.Topic, m.TopicPartition.Partition, m.TopicPartition.Offset)
 				}
 			case kafka.Error:
 				// Generic client instance-level errors, such as
@@ -89,11 +90,11 @@ func main() {
 
 	msgcnt := 0
 	for msgcnt < totalMsgcnt {
-		// value := fmt.Sprintf("Producer example, message #%d", msgcnt)
 
+		userID := rand.IntN(12)
 		value := &Message{
 			MessageID: fmt.Sprintf("msg_%d", msgcnt),
-			UserID:    fmt.Sprintf("User_%d", rand.IntN(10)),
+			UserID:    fmt.Sprintf("User_%d", userID),
 			Rows: []Row{
 				{RowID: "test_535", Value1: 777, Value2: 1.234},
 				{RowID: "test_987", Value1: 23, Value2: 0.567},
@@ -107,7 +108,7 @@ func main() {
 		}
 
 		err = p.Produce(&kafka.Message{
-			TopicPartition: kafka.TopicPartition{Topic: &topic, Partition: kafka.PartitionAny},
+			TopicPartition: kafka.TopicPartition{Topic: &topic, Partition: (int32)(userID % PARTITION_AMOUNT)},
 			Value:          payload,
 			Headers:        []kafka.Header{{Key: "Msg_id", Value: []byte(fmt.Sprintf("msg_%d", msgcnt))}},
 		}, nil)

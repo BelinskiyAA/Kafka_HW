@@ -24,6 +24,10 @@ type Message struct {
 	Rows      []Row  `json:"rows"`
 }
 
+type Committer interface {
+	Commit() ([]kafka.TopicPartition, error)
+}
+
 func main() {
 
 	if len(os.Args) < 5 {
@@ -35,6 +39,10 @@ func main() {
 	batchSize, err := strconv.Atoi(os.Args[3])
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "<batchSize> must be integer: %s\n", err)
+		os.Exit(1)
+	}
+	if batchSize <= 0 {
+		fmt.Fprint(os.Stderr, "<batchSize> must be positive\n")
 		os.Exit(1)
 	}
 	topics := os.Args[4:]
@@ -55,7 +63,6 @@ func main() {
 
 	if err != nil {
 		log.Fatalf("Невозможно создать консьюмера: %s\n", err)
-		os.Exit(1)
 	}
 
 	// Закрываем потребителя
@@ -67,49 +74,52 @@ func main() {
 
 	if err != nil {
 		log.Fatalf("Невозможно подписаться на топик: %s\n", err)
-		os.Exit(1)
 	}
 
 	run := true
-	var controller int
+	var batchCounter int
 	for run {
 		select {
 		case sig := <-sigchan:
 			fmt.Printf("Передан сигнал %v: приложение останавливается\n", sig)
+			if batchCounter > 0 {
+				doCommit(c)
+			}
 			run = false
 		default:
 			ev := c.Poll(100)
 			if ev == nil {
-				if controller != 0 {
-					doCommit(c)
-					controller = 0
-				}
 				continue
 			}
 
 			switch e := ev.(type) {
 			case *kafka.Message:
-				controller++
-				if controller == batchSize {
-					doCommit(c)
-					controller = 0
-				}
 				value := Message{}
 				err := json.Unmarshal(e.Value, &value)
 				if err != nil {
 					fmt.Printf("Ошибка десериализации: %s\n", err)
-					log.Fatalf("Ошибка десериализации: %s\n", err)
+					log.Printf("Ошибка десериализации: %s\n", err)
 				} else {
 					fmt.Printf("%% Получено сообщение в топик %s:\n%+v\n", e.TopicPartition, value)
 				}
+
+				batchCounter++
+
 				if e.Headers != nil {
 					fmt.Printf("%% Заголовки: %v\n", e.Headers)
+				}
+				if batchCounter == batchSize {
+					doCommit(c)
+					batchCounter = 0
 				}
 			case kafka.Error:
 				// Ошибки обычно следует считать информационными, клиент попытается автоматически их восстановить
 				fmt.Fprintf(os.Stderr, "%% Error: %v: %v\n", e.Code(), e)
-				log.Fatalf("%% Error: %v: %v\n", e.Code(), e)
+				log.Printf("%% Error: %v: %v\n", e.Code(), e)
 				if e.Code() == kafka.ErrAllBrokersDown {
+					if batchCounter > 0 {
+						doCommit(c)
+					}
 					run = false
 				}
 			default:
@@ -119,19 +129,16 @@ func main() {
 	}
 }
 
-func doCommit(consumer *kafka.Consumer) {
+func doCommit(consumer Committer) {
 	info, err := consumer.Commit()
-	fmt.Printf("Commited Topic %s offset %s \n", *info[len(info)-1].Topic, info[len(info)-1].Offset.String())
 	if err != nil {
-		fmt.Printf("Error %s", err)
-		log.Fatalf("Commite topic error %s", err)
-		panic("Ошибка подтверждения получения сообщения.")
+		fmt.Printf("Commit error: %s\n", err)
+		log.Printf("Commit topic error: %s", err)
+		return
 	}
-}
+	if len(info) > 0 {
+		last := info[len(info)-1]
+		fmt.Printf("Commited Topic %s offset %s \n", *last.Topic, last.Offset.String())
+	}
 
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
 }
