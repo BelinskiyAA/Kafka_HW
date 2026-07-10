@@ -1,0 +1,15 @@
+{
+  "namespace": "hw7.test",
+  "name": "value",
+  "type": "record",
+  "fields": [
+    {
+      "name": "message_id",
+      "type": "string"
+    },
+	{
+      "name": "user_id",
+      "type": "string"
+    }
+  ]
+}
