@@ -1,0 +1,23 @@
+{
+  "type": "record",
+  "name": "ProductRow",
+  "fields": [
+    { "name": "product_id", "type": "string" },
+    { "name": "name", "type": "string" },
+    { "name": "description", "type": "string", "default": "" },
+    { "name": "price_amount", "type": "double" },
+    { "name": "price_currency", "type": "string", "default": "RUB" },
+    { "name": "category", "type": "string", "default": "" },
+    { "name": "brand", "type": "string", "default": "" },
+    { "name": "stock_available", "type": "int" },
+    { "name": "stock_reserved", "type": "int" },
+    { "name": "sku", "type": "string", "default": "" },
+    { "name": "tags", "type": "string", "default": "[]" },
+    { "name": "images", "type": "string", "default": "[]" },
+    { "name": "specifications", "type": "string", "default": "{}" },
+    { "name": "created_at", "type": "string" },
+    { "name": "updated_at", "type": "string" },
+    { "name": "index", "type": "string", "default": "products" },
+    { "name": "store_id", "type": "string", "default": "" }
+  ]
+}

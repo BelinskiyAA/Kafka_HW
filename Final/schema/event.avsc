@@ -1,0 +1,18 @@
+{
+  "type": "record",
+  "name": "AnalyticsEvent",
+  "namespace": "client",
+  "fields": [
+    { "name": "event_type", "type": "string" },
+    { "name": "user", "type": "string" },
+    { "name": "query", "type": "string", "default": "" },
+    { "name": "found", "type": "boolean", "default": false },
+    { "name": "result_count", "type": "int", "default": 0 },
+    {
+      "name": "product_ids",
+      "type": { "type": "array", "items": "string" },
+      "default": []
+    },
+    { "name": "timestamp", "type": "string" }
+  ]
+}

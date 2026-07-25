@@ -1,0 +1,24 @@
+{
+  "name": "analytics-hdfs-confluent",
+  "config": {
+    "connector.class": "io.confluent.connect.hdfs.HdfsSinkConnector",
+    "tasks.max": "1",
+    "topics": "event",
+    "hdfs.url": "hdfs://namenode:8020",
+    "hadoop.conf.dir": "/etc/hadoop/conf",
+    "topics.dir": "/data/analytics-confluent",
+    "logs.dir": "/logs/connect-hdfs",
+    "flush.size": "1",
+    "rotate.interval.ms": "30000",
+    "format.class": "io.confluent.connect.hdfs.avro.AvroFormat",
+    "partitioner.class": "io.confluent.connect.storage.partitioner.DefaultPartitioner",
+    "hive.integration": "false",
+    "schema.compatibility": "NONE",
+    "key.converter": "org.apache.kafka.connect.storage.StringConverter",
+    "value.converter": "io.confluent.connect.avro.AvroConverter",
+    "value.converter.schema.registry.url": "http://schema-registry-2nd:8081",
+    "errors.tolerance": "all",
+    "errors.log.enable": "true",
+    "errors.log.include.messages": "true"
+  }
+}

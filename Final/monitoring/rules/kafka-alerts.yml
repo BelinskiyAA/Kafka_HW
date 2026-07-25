@@ -1,0 +1,49 @@
+groups:
+  - name: kafka-brokers
+    rules:
+      - alert: KafkaBrokerDown
+        expr: up{job="kafka-jmx"} == 0
+        for: 30s
+        labels:
+          severity: critical
+        annotations:
+          summary: "Kafka broker down (JMX)"
+          description: "Брокер {{ $labels.instance }} (cluster={{ $labels.cluster }}) недоступен для scrape JMX Exporter > 30s."
+
+      - alert: KafkaClusterBrokersLow
+        expr: count(up{job="kafka-jmx", cluster="A"} == 1) < 3
+        for: 1m
+        labels:
+          severity: critical
+          cluster: A
+        annotations:
+          summary: "Кластер A: меньше 3 брокеров online"
+          description: "Живых брокеров с JMX: {{ $value }} из 3."
+
+      - alert: KafkaClusterBrokersLowB
+        expr: count(up{job="kafka-jmx", cluster="B"} == 1) < 3
+        for: 1m
+        labels:
+          severity: critical
+          cluster: B
+        annotations:
+          summary: "Кластер B: меньше 3 брокеров online"
+          description: "Живых брокеров с JMX: {{ $value }} из 3."
+
+      - alert: KafkaBrokersViaExporterLow
+        expr: sum(kafka_brokers{cluster="A"}) < 3
+        for: 1m
+        labels:
+          severity: warning
+        annotations:
+          summary: "kafka-exporter видит меньше 3 брокеров в кластере A"
+          description: "kafka_brokers{cluster=A} = {{ $value }}."
+
+      - alert: KafkaBrokersViaExporterLowB
+        expr: sum(kafka_brokers{cluster="B"}) < 3
+        for: 1m
+        labels:
+          severity: warning
+        annotations:
+          summary: "kafka-exporter видит меньше 3 брокеров в кластере B"
+          description: "kafka_brokers{cluster=B} = {{ $value }}."

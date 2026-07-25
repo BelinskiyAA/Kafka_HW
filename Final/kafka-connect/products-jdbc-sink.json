@@ -1,0 +1,25 @@
+{
+  "name": "products-jdbc-sink",
+  "config": {
+    "connector.class": "io.confluent.connect.jdbc.JdbcSinkConnector",
+    "tasks.max": "1",
+    "topics": "filter-product",
+    "connection.url": "jdbc:postgresql://postgres:5432/shop?stringtype=unspecified",
+    "connection.user": "shop",
+    "connection.password": "shop",
+    "table.name.format": "products",
+    "pk.mode": "record_value",
+    "pk.fields": "product_id",
+    "insert.mode": "upsert",
+    "delete.enabled": "false",
+    "auto.create": "false",
+    "auto.evolve": "false",
+    "quote.sql.identifiers": "never",
+    "key.converter": "org.apache.kafka.connect.storage.StringConverter",
+    "value.converter": "io.confluent.connect.avro.AvroConverter",
+    "value.converter.schema.registry.url": "http://schema-registry-1st:8081",
+    "errors.tolerance": "all",
+    "errors.log.enable": "true",
+    "errors.log.include.messages": "true"
+  }
+}

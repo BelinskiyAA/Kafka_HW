@@ -1,0 +1,29 @@
+---
+lowercaseOutputName: true
+lowercaseOutputLabelNames: true
+whitelistObjectNames:
+  - kafka.server:*
+  - kafka.controller:*
+  - kafka.network:*
+  - kafka.log:*
+  - java.lang:*
+rules:
+  - pattern: 'kafka.server<type=(.+), name=(.+)><>(Count|Value|MeanRate|OneMinuteRate)'
+    name: kafka_server_$1_$2
+    labels:
+      attribute: "$3"
+  - pattern: 'kafka.controller<type=(.+), name=(.+)><>(Count|Value|MeanRate|OneMinuteRate)'
+    name: kafka_controller_$1_$2
+    labels:
+      attribute: "$3"
+  - pattern: 'kafka.network<type=(.+), name=(.+)><>(Count|Value|MeanRate|OneMinuteRate)'
+    name: kafka_network_$1_$2
+    labels:
+      attribute: "$3"
+  - pattern: 'kafka.log<type=(.+), name=(.+)><>(Count|Value|MeanRate|OneMinuteRate)'
+    name: kafka_log_$1_$2
+    labels:
+      attribute: "$3"
+  - pattern: 'java.lang<type=OperatingSystem><(.+)>'
+    name: jvm_os_$1
+    type: GAUGE

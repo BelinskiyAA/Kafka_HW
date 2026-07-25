@@ -1,0 +1,351 @@
+[
+  {
+    "product_id": "1001",
+    "name": "Смартфон Galaxy S24",
+    "description": "Флагманский смартфон с 6.8-дюймовым AMOLED-экраном, 256 ГБ памяти и камерой 200 Мп.",
+    "price": { "amount": 89999.00, "currency": "RUB" },
+    "category": "Электроника",
+    "brand": "Samsung",
+    "stock": { "available": 45, "reserved": 5 },
+    "sku": "SS-GS24-256",
+    "tags": ["смартфон", "android", "флагман"],
+    "images": [
+      { "url": "https://example.com/images/gs24_front.jpg", "alt": "Смартфон Galaxy S24 - вид спереди" },
+      { "url": "https://example.com/images/gs24_back.jpg", "alt": "Смартфон Galaxy S24 - вид сзади" }
+    ],
+    "specifications": {
+      "weight": "210g",
+      "dimensions": "157.8 x 76.2 x 7.6 mm",
+      "battery_life": "до 2 дней",
+      "screen": "6.8\" Dynamic AMOLED"
+    },
+    "created_at": "2025-01-15T10:00:00Z",
+    "updated_at": "2025-02-20T14:30:00Z",
+    "index": "products",
+    "store_id": "store_001"
+  },
+  {
+    "product_id": "1002",
+    "name": "Беспроводные наушники ProSound",
+    "description": "Наушники с активным шумоподавлением, частотой 40 Гц и временем работы до 30 часов.",
+    "price": { "amount": 12990.00, "currency": "RUB" },
+    "category": "Электроника",
+    "brand": "ProSound",
+    "stock": { "available": 120, "reserved": 10 },
+    "sku": "PS-WH1000",
+    "tags": ["наушники", "беспроводные", "шумоподавление"],
+    "images": [
+      { "url": "https://example.com/images/ps_wh1000_1.jpg", "alt": "Наушники ProSound в кейсе" },
+      { "url": "https://example.com/images/ps_wh1000_2.jpg", "alt": "Наушники ProSound на голове" }
+    ],
+    "specifications": {
+      "weight": "250g",
+      "dimensions": "180 x 160 x 50 mm",
+      "battery_life": "30 часов",
+      "bluetooth": "5.2"
+    },
+    "created_at": "2025-01-20T12:00:00Z",
+    "updated_at": "2025-02-18T09:00:00Z",
+    "index": "products",
+    "store_id": "store_001"
+  },
+  {
+    "product_id": "1003",
+    "name": "Кроссовки RunMax Air",
+    "description": "Лёгкие беговые кроссовки с воздушной подушкой и дышащим верхом.",
+    "price": { "amount": 7499.50, "currency": "RUB" },
+    "category": "Одежда и обувь",
+    "brand": "RunMax",
+    "stock": { "available": 80, "reserved": 12 },
+    "sku": "RM-AIR-42",
+    "tags": ["кроссовки", "бег", "спорт"],
+    "images": [
+      { "url": "https://example.com/images/rm_air_1.jpg", "alt": "Кроссовки RunMax Air - вид сбоку" },
+      { "url": "https://example.com/images/rm_air_2.jpg", "alt": "Кроссовки RunMax Air - вид сверху" }
+    ],
+    "specifications": {
+      "weight": "320g (пара)",
+      "dimensions": "US 9 (EU 42)",
+      "material": "сетка + синтетика",
+      "sole": "EVA с воздушной подушкой"
+    },
+    "created_at": "2025-02-01T08:00:00Z",
+    "updated_at": "2025-02-25T16:45:00Z",
+    "index": "products",
+    "store_id": "store_002"
+  },
+  {
+    "product_id": "1004",
+    "name": "Книга 'Мастер и Маргарита'",
+    "description": "Михаил Булгаков. Бессмертный роман о дьяволе, любви и искусстве.",
+    "price": { "amount": 699.00, "currency": "RUB" },
+    "category": "Книги",
+    "brand": "Издательство АСТ",
+    "stock": { "available": 200, "reserved": 15 },
+    "sku": "AST-MM-2024",
+    "tags": ["книга", "классика", "роман"],
+    "images": [
+      { "url": "https://example.com/images/mm_book_cover.jpg", "alt": "Обложка книги Мастер и Маргарита" }
+    ],
+    "specifications": {
+      "weight": "350g",
+      "dimensions": "21 x 14 x 2.5 cm",
+      "pages": "416",
+      "binding": "твёрдый переплёт"
+    },
+    "created_at": "2025-02-10T15:00:00Z",
+    "updated_at": "2025-02-10T15:00:00Z",
+    "index": "products",
+    "store_id": "store_003"
+  },
+  {
+    "product_id": "1005",
+    "name": "Конструктор Lego City Пожарная станция",
+    "description": "Набор из 450 деталей для сборки пожарной станции с вертолётом и пожарной машиной.",
+    "price": { "amount": 4999.00, "currency": "RUB" },
+    "category": "Игрушки",
+    "brand": "Lego",
+    "stock": { "available": 30, "reserved": 2 },
+    "sku": "LEGO-60215",
+    "tags": ["конструктор", "лего", "пожарные"],
+    "images": [
+      { "url": "https://example.com/images/lego_fire_1.jpg", "alt": "Конструктор Lego Пожарная станция - вид набора" },
+      { "url": "https://example.com/images/lego_fire_2.jpg", "alt": "Конструктор Lego Пожарная станция - в собранном виде" }
+    ],
+    "specifications": {
+      "weight": "1.2kg",
+      "dimensions": "48 x 38 x 9 cm",
+      "pieces": "450",
+      "age": "6+"
+    },
+    "created_at": "2025-02-14T10:00:00Z",
+    "updated_at": "2025-03-01T11:00:00Z",
+    "index": "products",
+    "store_id": "store_004"
+  },
+  {
+    "product_id": "1006",
+    "name": "Велосипед горный UralBike Trail",
+    "description": "Алюминиевая рама, 27.5 колёса, дисковые тормоза и 24 скорости.",
+    "price": { "amount": 34990.00, "currency": "RUB" },
+    "category": "Спорт и отдых",
+    "brand": "UralBike",
+    "stock": { "available": 15, "reserved": 3 },
+    "sku": "UB-TRAIL-27",
+    "tags": ["велосипед", "горный", "спорт"],
+    "images": [
+      { "url": "https://example.com/images/ub_trail_1.jpg", "alt": "Велосипед UralBike Trail - вид сбоку" },
+      { "url": "https://example.com/images/ub_trail_2.jpg", "alt": "Велосипед UralBike Trail - рама и колёса" }
+    ],
+    "specifications": {
+      "weight": "13.5kg",
+      "dimensions": "170 x 65 x 110 cm",
+      "frame": "алюминий 6061",
+      "fork": "пружинно-масляная, ход 100 мм"
+    },
+    "created_at": "2025-02-20T09:00:00Z",
+    "updated_at": "2025-03-05T14:00:00Z",
+    "index": "products",
+    "store_id": "store_002"
+  },
+  {
+    "product_id": "1007",
+    "name": "Робот-пылесос CleanBot X7",
+    "description": "Умный пылесос с лазерной навигацией, влажной уборкой и управлением через приложение.",
+    "price": { "amount": 27990.00, "currency": "RUB" },
+    "category": "Дом и техника",
+    "brand": "CleanBot",
+    "stock": { "available": 25, "reserved": 4 },
+    "sku": "CB-X7",
+    "tags": ["пылесос", "робот", "умный дом"],
+    "images": [
+      { "url": "https://example.com/images/cb_x7_1.jpg", "alt": "Робот-пылесос CleanBot X7 - вид сверху" },
+      { "url": "https://example.com/images/cb_x7_2.jpg", "alt": "Робот-пылесос CleanBot X7 - на зарядной станции" }
+    ],
+    "specifications": {
+      "weight": "3.2kg",
+      "dimensions": "35 x 35 x 9.5 cm",
+      "battery_life": "120 минут",
+      "dustbin": "600 мл"
+    },
+    "created_at": "2025-03-01T12:30:00Z",
+    "updated_at": "2025-03-10T08:00:00Z",
+    "index": "products",
+    "store_id": "store_001"
+  },
+  {
+    "product_id": "1008",
+    "name": "Крем для лица Vitamin C+",
+    "description": "Антивозрастной крем с витамином С, гиалуроновой кислотой и SPF 30.",
+    "price": { "amount": 2450.00, "currency": "RUB" },
+    "category": "Косметика",
+    "brand": "BeautyLab",
+    "stock": { "available": 90, "reserved": 8 },
+    "sku": "BL-VC50",
+    "tags": ["крем", "уход", "витамин С"],
+    "images": [
+      { "url": "https://example.com/images/bl_vc50_1.jpg", "alt": "Крем Vitamin C+ - флакон" },
+      { "url": "https://example.com/images/bl_vc50_2.jpg", "alt": "Крем Vitamin C+ - текстура на руке" }
+    ],
+    "specifications": {
+      "weight": "50g",
+      "dimensions": "4.5 x 4.5 x 5 cm",
+      "skin_type": "все типы",
+      "age": "30+"
+    },
+    "created_at": "2025-03-05T16:00:00Z",
+    "updated_at": "2025-03-12T10:00:00Z",
+    "index": "products",
+    "store_id": "store_005"
+  },
+  {
+    "product_id": "1009",
+    "name": "Набор шоколадных конфет 'Роскошный'",
+    "description": "Ассорти из 30 штук премиальных шоколадных конфет с различными начинками в подарочной коробке.",
+    "price": { "amount": 1890.00, "currency": "RUB" },
+    "category": "Продукты питания",
+    "brand": "SweetLife",
+    "stock": { "available": 60, "reserved": 10 },
+    "sku": "SL-LUX-30",
+    "tags": ["шоколад", "конфеты", "подарок"],
+    "images": [
+      { "url": "https://example.com/images/sl_lux_1.jpg", "alt": "Набор конфет Роскошный - коробка" },
+      { "url": "https://example.com/images/sl_lux_2.jpg", "alt": "Набор конфет Роскошный - содержимое" }
+    ],
+    "specifications": {
+      "weight": "450g",
+      "dimensions": "25 x 18 x 5 cm",
+      "ingredients": "шоколад, орехи, карамель, фрукты",
+      "shelf_life": "6 месяцев"
+    },
+    "created_at": "2025-03-08T11:00:00Z",
+    "updated_at": "2025-03-15T09:30:00Z",
+    "index": "products",
+    "store_id": "store_003"
+  },
+  {
+    "product_id": "1010",
+    "name": "Автомобильный видеорегистратор RoadEye Pro",
+    "description": "Регистратор с 2K видео, ночным видением, GPS-трекером и датчиком удара.",
+    "price": { "amount": 8990.00, "currency": "RUB" },
+    "category": "Автотовары",
+    "brand": "RoadEye",
+    "stock": { "available": 40, "reserved": 5 },
+    "sku": "RE-PRO-2K",
+    "tags": ["авто", "видеорегистратор", "безопасность"],
+    "images": [
+      { "url": "https://example.com/images/re_pro_1.jpg", "alt": "Видеорегистратор RoadEye Pro - вид спереди" },
+      { "url": "https://example.com/images/re_pro_2.jpg", "alt": "Видеорегистратор RoadEye Pro - в салоне" }
+    ],
+    "specifications": {
+      "weight": "150g",
+      "dimensions": "10 x 5 x 3 cm",
+      "resolution": "2560x1440",
+      "memory": "поддержка до 128 ГБ"
+    },
+    "created_at": "2025-03-12T14:00:00Z",
+    "updated_at": "2025-03-20T18:00:00Z",
+    "index": "products",
+    "store_id": "store_006"
+  },
+  {
+    "product_id": "1011",
+    "name": "Электрическая дрель PowerTool 500W",
+    "description": "Мощная дрель с регулировкой оборотов, функцией удара и комплектом свёрл.",
+    "price": { "amount": 4990.00, "currency": "RUB" },
+    "category": "Инструменты",
+    "brand": "PowerTool",
+    "stock": { "available": 35, "reserved": 7 },
+    "sku": "PT-500W",
+    "tags": ["дрель", "электроинструмент", "ремонт"],
+    "images": [
+      { "url": "https://example.com/images/pt_500_1.jpg", "alt": "Электрическая дрель PowerTool 500W - общий вид" },
+      { "url": "https://example.com/images/pt_500_2.jpg", "alt": "Электрическая дрель PowerTool 500W - комплект свёрл" }
+    ],
+    "specifications": {
+      "weight": "2.1kg",
+      "dimensions": "28 x 20 x 8 cm",
+      "power": "500 Вт",
+      "max_speed": "3000 об/мин"
+    },
+    "created_at": "2025-03-15T08:00:00Z",
+    "updated_at": "2025-03-22T12:00:00Z",
+    "index": "products",
+    "store_id": "store_007"
+  },
+  {
+    "product_id": "1012",
+    "name": "Кресло-мешок ComfortBag XL",
+    "description": "Бескаркасное кресло с наполнителем из пенополистирола, съёмный чехол из велюра.",
+    "price": { "amount": 6990.00, "currency": "RUB" },
+    "category": "Мебель",
+    "brand": "ComfortBag",
+    "stock": { "available": 18, "reserved": 2 },
+    "sku": "CB-XL-BEIGE",
+    "tags": ["кресло", "мешок", "интерьер"],
+    "images": [
+      { "url": "https://example.com/images/cb_xl_1.jpg", "alt": "Кресло-мешок ComfortBag XL - вид спереди" },
+      { "url": "https://example.com/images/cb_xl_2.jpg", "alt": "Кресло-мешок ComfortBag XL - в интерьере" }
+    ],
+    "specifications": {
+      "weight": "4.5kg",
+      "dimensions": "100 x 70 x 70 cm",
+      "material": "велюр, наполнитель EPS",
+      "color": "бежевый"
+    },
+    "created_at": "2025-03-18T13:00:00Z",
+    "updated_at": "2025-03-25T16:00:00Z",
+    "index": "products",
+    "store_id": "store_008"
+  },
+  {
+    "product_id": "1013",
+    "name": "Садовые ножницы GreenCut Pro",
+    "description": "Ножницы для обрезки веток до 25 мм, с титановым покрытием и противоскользящими ручками.",
+    "price": { "amount": 1290.00, "currency": "RUB" },
+    "category": "Сад и огород",
+    "brand": "GreenCut",
+    "stock": { "available": 55, "reserved": 6 },
+    "sku": "GC-PRO-25",
+    "tags": ["ножницы", "сад", "обрезка"],
+    "images": [
+      { "url": "https://example.com/images/gc_pro_1.jpg", "alt": "Садовые ножницы GreenCut Pro - общий вид" },
+      { "url": "https://example.com/images/gc_pro_2.jpg", "alt": "Садовые ножницы GreenCut Pro - лезвия" }
+    ],
+    "specifications": {
+      "weight": "280g",
+      "dimensions": "20 x 8 x 3 cm",
+      "max_cut": "25 мм",
+      "material": "сталь с титановым покрытием"
+    },
+    "created_at": "2025-03-20T10:00:00Z",
+    "updated_at": "2025-03-28T11:30:00Z",
+    "index": "products",
+    "store_id": "store_009"
+  },
+  {
+    "product_id": "1014",
+    "name": "Корм для кошек Gourmet Meat Feast",
+    "description": "Полнорационный влажный корм для взрослых кошек, кусочки в соусе, упаковка 12x85 г.",
+    "price": { "amount": 1050.00, "currency": "RUB" },
+    "category": "Зоотовары",
+    "brand": "Gourmet",
+    "stock": { "available": 100, "reserved": 20 },
+    "sku": "GMF-12",
+    "tags": ["корм", "кошки", "влажный"],
+    "images": [
+      { "url": "https://example.com/images/gmf_1.jpg", "alt": "Корм Gourmet Meat Feast - упаковка" },
+      { "url": "https://example.com/images/gmf_2.jpg", "alt": "Корм Gourmet Meat Feast - содержимое" }
+    ],
+    "specifications": {
+      "weight": "1.02кг (упаковка)",
+      "dimensions": "25 x 18 x 6 cm",
+      "ingredients": "мясо, печень, соус, витамины",
+      "age": "взрослые (1+)"
+    },
+    "created_at": "2025-03-22T09:00:00Z",
+    "updated_at": "2025-03-30T14:00:00Z",
+    "index": "products",
+    "store_id": "store_010"
+  }
+]

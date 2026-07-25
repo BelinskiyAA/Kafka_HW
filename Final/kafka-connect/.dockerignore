@@ -1,0 +1,2 @@
+# Do not send the Hub zip into the build context (unzipped dir is enough)
+plugins/*.zip
